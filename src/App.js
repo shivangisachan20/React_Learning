@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState ,useEffect} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(){
+    const[count,setCount] = useState(0);
+    const[count1,setCount1] = useState(100);
+    const handleDecerement = () => {
+        setCount1(count1-1);
+    }
+    useEffect(()=> {
+    console.log('useEffect');
+    },[count]);
+    return(
+        <React.Fragment>
+            <h1> Count Up:{count}</h1>
+            <button type="button" onClick={()=>setCount(count+1)}>Count Up</button>
+
+            <h1> Count Down:{count1}</h1>
+            <button type="button" onClick={handleDecerement}>Count Down</button>
+        </React.Fragment>
+
+
+    )
 }
-
 export default App;
